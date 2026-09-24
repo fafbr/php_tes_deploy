@@ -22,7 +22,7 @@ switch ($path) {
     case '/dokter/tambah.php':
         require __DIR__ . '/../app/dokter/tambah.php';
         break;
-    case '/dokter/tambah.php':
+    case '/dokter/proses.php':
         require __DIR__ . '/../app/dokter/proses.php';
         break;
     case '/poli/list.php':
@@ -31,7 +31,7 @@ switch ($path) {
     case '/poli/tambah.php':
         require __DIR__ . '/../app/poli/tambah.php';
         break;
-    case '/poli/tambah.php':
+    case '/poli/proses.php':
         require __DIR__ . '/../app/poli/proses.php';
         break;
     default:
