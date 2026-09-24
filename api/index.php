@@ -22,11 +22,17 @@ switch ($path) {
     case '/dokter/tambah.php':
         require __DIR__ . '/../app/dokter/tambah.php';
         break;
+    case '/dokter/tambah.php':
+        require __DIR__ . '/../app/dokter/proses.php';
+        break;
     case '/poli/list.php':
         require __DIR__ . '/../app/poli/list.php';
         break;
     case '/poli/tambah.php':
         require __DIR__ . '/../app/poli/tambah.php';
+        break;
+    case '/poli/tambah.php':
+        require __DIR__ . '/../app/poli/proses.php';
         break;
     default:
         http_response_code(404);
