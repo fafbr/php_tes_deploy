@@ -13,6 +13,9 @@ switch ($path) {
     case '/login.php':
         require __DIR__ . '/../app/login.php';
         break;
+    case '/register.php':
+        require __DIR__ . '/../app/register.php';
+        break;
     case '/logout.php':
         require __DIR__ . '/../app/logout.php';
         break;
@@ -25,6 +28,9 @@ switch ($path) {
     case '/dokter/proses.php':
         require __DIR__ . '/../app/dokter/proses.php';
         break;
+    case '/dokter/hapus.php':
+        require __DIR__ . '/../app/dokter/hapus.php';
+        break;
     case '/poli/list.php':
         require __DIR__ . '/../app/poli/list.php';
         break;
@@ -33,6 +39,9 @@ switch ($path) {
         break;
     case '/poli/proses.php':
         require __DIR__ . '/../app/poli/proses.php';
+        break;
+    case '/poli/hapus.php':
+        require __DIR__ . '/../app/poli/hapus.php';
         break;
     default:
         http_response_code(404);
