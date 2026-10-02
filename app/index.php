@@ -8,9 +8,11 @@ require_once __DIR__ . '/includes/init.php';
 $page_title = 'POLIMEDIC - Modern Poliklinik';
 $active_page = 'dashboard';
 
-// Hitung total dari session
-$total_dokter = isset($_SESSION['dokter']) ? count($_SESSION['dokter']) : 0;
-$total_poli = isset($_SESSION['poli']) ? count($_SESSION['poli']) : 0;
+$stmt_poli = $pdo->query("SELECT COUNT(*) FROM poli");
+$total_poli = $stmt_poli->fetchColumn() ?? 0;
+
+$stmt_dokter = $pdo->query("SELECT COUNT(*) FROM dokter");
+$total_dokter = $stmt_dokter->fetchColumn() ?? 0;
 
 require_once __DIR__ . '/includes/header.php';
 ?>
@@ -27,7 +29,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow flex items-center justify-between">
             <div>
                 <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Poliklinik</p>
-                <h3 class="text-3xl font-bold text-slate-900 mt-1"><?= $total_poli; ?> <span class="text-sm font-normal text-slate-500">Unit</span></h3>
+                <h3 class="text-3xl font-bold text-slate-900 mt-1"><?= (int) $total_poli; ?> <span class="text-sm font-normal text-slate-500">Unit</span></h3>
             </div>
             <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center font-semibold">
                 🏥
@@ -36,7 +38,7 @@ require_once __DIR__ . '/includes/header.php';
         <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow flex items-center justify-between">
             <div>
                 <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Dokter Terdaftar</p>
-                <h3 class="text-3xl font-bold text-slate-900 mt-1"><?= $total_dokter; ?> <span class="text-sm font-normal text-slate-500">Orang</span></h3>
+                <h3 class="text-3xl font-bold text-slate-900 mt-1"><?= (int) $total_dokter; ?> <span class="text-sm font-normal text-slate-500">Orang</span></h3>
             </div>
             <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center font-semibold">
                 👨‍⚕️

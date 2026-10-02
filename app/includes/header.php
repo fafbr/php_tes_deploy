@@ -5,6 +5,9 @@ require_once __DIR__ . '/init.php';
 if (!isset($active_page)) {
     $active_page = 'dashboard';
 }
+
+$user_display_name = $_SESSION['nama_lengkap'] ?? $_SESSION['username'] ?? 'User';
+$user_role         = $_SESSION['role'] ?? 'user';
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -42,9 +45,11 @@ if (!isset($active_page)) {
                 <div class="hidden sm:flex items-center gap-4">
                     <div class="flex flex-col text-right">
                         <span class="text-xs font-semibold text-slate-900">
-                            <?= htmlspecialchars($_SESSION['username'] ?? 'Admin'); ?>
+                            <?= htmlspecialchars($user_display_name); ?>
                         </span>
-                        <span class="text-[10px] text-slate-400">Administrator</span>
+                        <span class="text-[10px] font-bold uppercase tracking-wider <?= $user_role === 'admin' ? 'text-indigo-600' : 'text-slate-400'; ?>">
+                            <?= $user_role === 'admin' ? 'Administrator' : 'User'; ?>
+                        </span>
                     </div>
                     <a href="<?= base_url('logout.php'); ?>" 
                        onclick="return confirm('Apakah Anda yakin ingin keluar?');"
@@ -78,9 +83,11 @@ if (!isset($active_page)) {
                     <div class="pt-2 mt-2 border-t border-slate-100 px-4 flex items-center justify-between">
                         <div class="flex flex-col">
                             <span class="text-xs font-semibold text-slate-900">
-                                <?= htmlspecialchars($_SESSION['username'] ?? 'Admin'); ?>
+                                <?= htmlspecialchars($user_display_name); ?>
                             </span>
-                            <span class="text-[10px] text-slate-400">Administrator</span>
+                            <span class="text-[10px] font-bold uppercase tracking-wider <?= $user_role === 'admin' ? 'text-indigo-600' : 'text-slate-400'; ?>">
+                                <?= $user_role === 'admin' ? 'Administrator' : 'User'; ?>
+                            </span>
                         </div>
                         <a href="<?= base_url('logout.php'); ?>" 
                            onclick="return confirm('Apakah Anda yakin ingin keluar?');"

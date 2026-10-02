@@ -14,18 +14,17 @@ $poli = [
     'gedung' => ''
 ];
 
-// Cek jika mode Edit
-if ($id !== null && isset($_SESSION['poli'])) {
-    foreach ($_SESSION['poli'] as $item) {
-        if ($item['id'] == $id) {
-            $poli = $item;
-            $is_edit = true;
-            break;
-        }
+if ($id) {
+    $stmt = $pdo->prepare("SELECT * FROM poli WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+    $poli = $stmt->fetch();
+
+    if ($poli) {
+        $is_edit = true;
     }
 }
 
-$page_title = ($is_edit ? 'Edit Data Poli' : 'Tambah Poli Baru') . ' - POLIMEDIC';
+$page_title = ($is_edit ? 'Edit' : 'Tambah') . 'Poliklinik - POLIMEDIC';
 $active_page = 'poli';
 
 require_once __DIR__ . '/../includes/header.php';

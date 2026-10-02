@@ -1,13 +1,9 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 require_once __DIR__ . '/../includes/init.php';
 
-// Initial state data kosong (Mode Tambah)
 $id = $_GET['id'] ?? null;
 $is_edit = false;
+
 $dokter = [
     'id' => '',
     'nama' => '',
@@ -15,18 +11,18 @@ $dokter = [
     'telepon' => ''
 ];
 
-// Cek jika mode Edit
-if ($id !== null && isset($_SESSION['dokter'])) {
-    foreach ($_SESSION['dokter'] as $item) {
-        if ($item['id'] == $id) {
-            $dokter = $item;
-            $is_edit = true;
-            break;
-        }
+if ($id) {
+    $stmt = $pdo->prepare("SELECT * FROM dokter WHERE id = :id");
+    $stmt->execute(['id' => $id]);
+    $data_fetched = $stmt->fetch();
+
+    if ($data_fetched) {
+        $dokter = $data_fetched;
+        $is_edit = true;
     }
 }
 
-$page_title = ($is_edit ? 'Edit Data Dokter' : 'Tambah Dokter Baru') . ' - POLIMEDIC';
+$page_title = ($is_edit ? 'Edit' : 'Tambah') . ' Dokter - POLIMEDIC';
 $active_page = 'dokter';
 
 require_once __DIR__ . '/../includes/header.php';
