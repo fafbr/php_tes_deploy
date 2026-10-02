@@ -9,6 +9,5 @@
       "source": "/((?!assets/).*)",
       "destination": "/api/index.php"
     }
-  ],
-  "outputDirectory": "."
+  ]
 }
