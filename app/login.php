@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - POLIMEDIC</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="<?= base_url('assets/style.css'); ?>">
 </head>
 <body class="bg-slate-100 flex items-center justify-center min-h-screen p-4">
 
