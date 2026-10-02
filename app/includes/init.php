@@ -1,9 +1,13 @@
 <?php
+require_once __DIR__ . '/koneksi.php';
+require_once __DIR__ . '/session_handler.php';
+
+$handler = new PdoSessionHandler($pdo);
+session_set_save_handler($handler, true);
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-require_once __DIR__ . '/koneksi.php';
 
 $base_url = '/';
 
