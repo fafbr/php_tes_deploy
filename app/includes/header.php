@@ -15,7 +15,6 @@ $user_role         = $_SESSION['role'] ?? 'user';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= isset($page_title) ? htmlspecialchars($page_title) : 'POLIMEDIC - Modern Poliklinik'; ?></title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="<?= base_url('assets/style.css'); ?>">
 </head>
 <body class="bg-slate-50 min-h-screen flex flex-col justify-between">
