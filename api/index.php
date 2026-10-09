@@ -8,40 +8,40 @@ $path = parse_url($request, PHP_URL_PATH);
 switch ($path) {
     case '/':
     case '/index.php':
-        require __DIR__ . '/../app/index.php';
+        require __DIR__ . '/../index.php';
         break;
     case '/login.php':
-        require __DIR__ . '/../app/login.php';
+        require __DIR__ . '/../login.php';
         break;
     case '/register.php':
-        require __DIR__ . '/../app/register.php';
+        require __DIR__ . '/../register.php';
         break;
     case '/logout.php':
-        require __DIR__ . '/../app/logout.php';
+        require __DIR__ . '/../logout.php';
         break;
     case '/dokter/list.php':
-        require __DIR__ . '/../app/dokter/list.php';
+        require __DIR__ . '/../dokter/list.php';
         break;
     case '/dokter/tambah.php':
-        require __DIR__ . '/../app/dokter/tambah.php';
+        require __DIR__ . '/../dokter/tambah.php';
         break;
     case '/dokter/proses.php':
-        require __DIR__ . '/../app/dokter/proses.php';
+        require __DIR__ . '/../dokter/proses.php';
         break;
     case '/dokter/hapus.php':
-        require __DIR__ . '/../app/dokter/hapus.php';
+        require __DIR__ . '/../dokter/hapus.php';
         break;
     case '/poli/list.php':
-        require __DIR__ . '/../app/poli/list.php';
+        require __DIR__ . '/../poli/list.php';
         break;
     case '/poli/tambah.php':
-        require __DIR__ . '/../app/poli/tambah.php';
+        require __DIR__ . '/../poli/tambah.php';
         break;
     case '/poli/proses.php':
-        require __DIR__ . '/../app/poli/proses.php';
+        require __DIR__ . '/../poli/proses.php';
         break;
     case '/poli/hapus.php':
-        require __DIR__ . '/../app/poli/hapus.php';
+        require __DIR__ . '/../poli/hapus.php';
         break;
     default:
         http_response_code(404);
