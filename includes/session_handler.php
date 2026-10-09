@@ -31,7 +31,7 @@ class PdoSessionHandler implements SessionHandlerInterface
 
         $this->gcStatement = $pdo->prepare(
             'DELETE FROM user_sessions
-             WHERE last_accessed < NOW() - (:max_lifetime * INTERVAL \'1 second\')'
+            WHERE last_accessed < NOW() - (CAST(:max_lifetime AS INTEGER) * INTERVAL \'1 second\')'
         );
     }
 
